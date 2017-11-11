@@ -123,7 +123,7 @@ then
 else
 	echo "$bcompare not found."
   echo "== Downloading Beyond Compare =="
-wget -O bcompare.rpm http://www.scootersoftware.com/bcompare-4.2.3.22587.x86_64.rpm
+	wget -O bcompare.rpm http://www.scootersoftware.com/bcompare-4.2.3.22587.x86_64.rpm
 fi
 echo "=="
 dnf -y install $bcompare
@@ -137,7 +137,7 @@ dnf -y install eclipse
 dnf copr -y enable mosquito/brackets
 dnf -y install brackets
 dnf -y install kernel-devel kernel-headers
-#TODO: mysql-workbench-community
+dnf -y install mysql-workbench-community
 
 dnf -y install mariadb mariadb-server
 systemctl enable mariadb
@@ -176,6 +176,9 @@ git config --global user.email "name@email.com"
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
 cp autostart/ownCloud.desktop ~/.config/autostart
+
+# Secure mariadb
+mysql_secure_installation
 
 dnf upgrade -y
 dnf clean packages -y
