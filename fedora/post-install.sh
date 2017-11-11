@@ -3,7 +3,7 @@
 # Author: James Ussery <James@JPU4.com>
 # Date Created: 20171110
 # Description: Fedora 26 Post install but should work for future versions as well.
-#
+# I've used individual dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
 dlpath="~/Downloads/apps"
@@ -33,7 +33,7 @@ dnf -y install gstreamer1-plugins-good
 dnf -y install gstreamer1-plugins-ugly
 dnf -y install gstreamer1-plugins-ugly-free
 dnf -y install kodi
-dnf -y youtube-dl
+dnf -y install youtube-dl
 dnf -y install azureus
 
 sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
