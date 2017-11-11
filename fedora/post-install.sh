@@ -85,7 +85,6 @@ dnf -y install focuswriter
 dnf -y install hamster-time-tracker
 dnf -y install thunderbird
 dnf -y install libreoffice
-dnf -y install kingsoft-WPS-office
 
 echo "== GRAPHICS =="
 dnf -y install shotwell
