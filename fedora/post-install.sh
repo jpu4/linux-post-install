@@ -22,6 +22,13 @@ echo "== REPOS =="
 dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+## Remi Dependency on Fedora 26 / 25 / 24 ##
+rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+
+## Fedora 26 ##
+rpm -Uvh http://rpms.famillecollet.com/fedora/remi-release-$(rpm -E %fedora).rpm
+
 echo "== MEDIA =="
 dnf -y install vlc
 dnf -y install clementine
@@ -146,8 +153,27 @@ dnf -y install httpd
 dnf -y install php
 dnf -y install php-mysqlnd
 dnf -y install php-opcache
+dnf -y install php-pecl-apcu
+dnf -y install php-cli
+dnf -y install php-pear
+dnf -y install php-pdo
+dnf -y install php-mysqlnd
+dnf -y install php-pgsql
+dnf -y install php-pecl-mongodb
+dnf -y install php-pecl-memcache
+dnf -y install php-pecl-memcached
+dnf -y install php-gd
+dnf -y install php-mbstring
+dnf -y install php-mcrypt
+dnf -y install php-xml
+
 systemctl enable httpd
 systemctl start httpd
+
+
+
+
+
 
 echo "=="
 echo "Checking for atom editor..."
