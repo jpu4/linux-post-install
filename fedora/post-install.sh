@@ -138,12 +138,14 @@ dnf copr -y enable mosquito/brackets
 dnf -y install brackets
 dnf -y install kernel-devel kernel-headers
 dnf -y install mysql-workbench-community
-
 dnf -y install mariadb mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
 dnf -y install httpd
+dnf -y install php
+dnf -y install php-mysqlnd
+dnf -y install php-opcache
 systemctl enable httpd
 systemctl start httpd
 
