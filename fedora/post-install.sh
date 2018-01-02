@@ -6,7 +6,7 @@
 # I've used individual dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
-dlpath="~/Downloads/apps"
+dlpath="~/Downloads/"
 
 echo "Start SSHD service"
 systemctl enable sshd
@@ -171,10 +171,6 @@ systemctl enable httpd
 systemctl start httpd
 
 
-
-
-
-
 echo "=="
 echo "Checking for atom editor..."
 echo "=="
@@ -193,13 +189,15 @@ echo "=="
 
 sudo pip install --upgrade pip
 
-# dnf -y install VirtualBox
-# dnf -y install VirtualBox-guest-additions
+dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+dnf config-manager --set-enabled virtualbox
+dnf -y install VirtualBox-5.2
+dnf -y install VirtualBox-guest-additions
 
 echo "== SETTINGS =="
 # Add global git values
 git config --global user.name "First Last"
-git config --global user.email "name@email.com"
+git config --global user.email "your@email.com"
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
