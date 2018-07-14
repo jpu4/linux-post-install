@@ -2,7 +2,7 @@
 
 # Author: James Ussery <James@JPU4.com>
 # Date Created: 20171110
-# Description: Fedora 26 Post install but should work for future versions as well.
+# Description: Fedora Post install (Should work for future versions as well).
 # I've used individual dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
@@ -12,6 +12,7 @@ echo "Start SSHD service"
 systemctl enable sshd
 systemctl start sshd
 
+dnf install -y exfat-utils fuse-exfat fuse
 echo "Remove programs I don't like"
 dnf -y remove amarok dragon
 
