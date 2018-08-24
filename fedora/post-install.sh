@@ -118,7 +118,21 @@ dnf -y install unzip
 dnf -y install wget
 dnf -y install htop
 
-#https://download.nomachine.com/download/6.2/Linux/nomachine_6.2.4_1_x86_64.rpm
+echo "Checking for NoMachine..."
+echo "=="
+nomachine="$dlpath/NoMachine.rpm"
+if [ -f "$nomachine" ]
+then
+	echo "$nomachine found. Skipping Download."
+else
+	echo "$nomachine not found."
+  echo "== Downloading NoMachine =="
+	wget -O nomachine.rpm https://download.nomachine.com/download/6.2/Linux/nomachine_6.2.4_1_x86_64.rpm
+fi
+echo "=="
+dnf -y install $nomachine
+echo "=="
+
 
 echo "Checking for Beyond Compare..."
 echo "=="
@@ -129,7 +143,7 @@ then
 else
 	echo "$bcompare not found."
   echo "== Downloading Beyond Compare =="
-	wget -O bcompare.rpm http://www.scootersoftware.com/bcompare-4.2.3.22587.x86_64.rpm
+	wget -O bcompare.rpm http://www.scootersoftware.com/bcompare-4.2.6.23150.x86_64.rpm
 fi
 echo "=="
 dnf -y install $bcompare
