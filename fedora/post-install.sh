@@ -118,6 +118,8 @@ dnf -y install unzip
 dnf -y install wget
 dnf -y install htop
 
+#https://download.nomachine.com/download/6.2/Linux/nomachine_6.2.4_1_x86_64.rpm
+
 echo "Checking for Beyond Compare..."
 echo "=="
 bcompare="$dlpath/bcompare.rpm"
