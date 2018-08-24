@@ -46,6 +46,7 @@ dnf -y install spotify-client
 echo "== CHAT =="
 dnf -y install skypeforlinux.x86_64
 dnf -y install pidgin
+
 echo "=="
 echo "Checking for Slack..."
 echo "=="
@@ -61,6 +62,14 @@ fi
 echo "=="
 dnf -y install $slack
 echo "=="
+
+
+# Signal Desktop for Fedora
+# https://copr.fedorainfracloud.org/coprs/luminoso/Signal-Desktop/
+
+dnf copr enable luminoso/Signal-Desktop
+dnf install -y signal-desktop
+
 
 echo "== BROWSERS =="
 dnf -y install lynx
@@ -133,6 +142,21 @@ echo "=="
 dnf -y install $nomachine
 echo "=="
 
+
+echo "Checking for TeamViewer..."
+echo "=="
+teamviewer="$dlpath/teamviewer.rpm"
+if [ -f "$teamviewer" ]
+then
+	echo "$teamviewer found. Skipping Download."
+else
+	echo "$teamviewer not found."
+  echo "== Downloading teamviewer =="
+	wget -O teamviewer.rpm https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+fi
+echo "=="
+dnf -y install $teamviewer
+echo "=="
 
 echo "Checking for Beyond Compare..."
 echo "=="
