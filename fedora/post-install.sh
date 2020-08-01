@@ -28,6 +28,9 @@ dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-r
 ehco "fastestmirror=true" >> /etc/dnf/dnf.conf
 ehco "deltarpm=true" >> /etc/dnf/dnf.conf
 
+dnf copr enable kwizart/fedy
+dnf install fedy -y
+
 echo "== MEDIA =="
 dnf -y install vlc
 dnf -y install clementine
