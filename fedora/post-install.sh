@@ -7,7 +7,7 @@
 # I've used individual dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
-dlpath="~/Downloads/"
+dlpath="~/Downloads"
 cd $dlpath
 
 # UnComment to enable SSH Service
@@ -24,6 +24,9 @@ dnf -y upgrade
 echo "== REPOS =="
 dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+ehco "fastestmirror=true" >> /etc/dnf/dnf.conf
+ehco "deltarpm=true" >> /etc/dnf/dnf.conf
 
 echo "== MEDIA =="
 dnf -y install vlc
@@ -57,7 +60,7 @@ then
 else
 	echo "$slack not found."
   echo "== Downloading Slack =="
- wget -O $slack https://downloads.slack-edge.com/linux_releases/slack-2.8.2-0.1.fc21.x86_64.rpm
+ wget -O $slack https://downloads.slack-edge.com/linux_releases/slack-4.8.0-0.1.fc21.x86_64.rpm
 fi
 echo "=="
 dnf -y install $slack
@@ -85,7 +88,7 @@ then
 else
 	echo "$vivaldi not found."
   echo "== Downloading Vivaldi as of 20171110 =="
-  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-1.12.955.48-1.x86_64.rpm
+  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-3.1.1929.48-1.x86_64.rpm
 fi
 echo "=="
 dnf -y install $vivaldi
@@ -136,7 +139,7 @@ then
 else
 	echo "$nomachine not found."
   echo "== Downloading NoMachine =="
-	wget -O nomachine.rpm https://download.nomachine.com/download/6.2/Linux/nomachine_6.2.4_1_x86_64.rpm
+	wget -O nomachine.rpm https://download.nomachine.com/download/6.2/Linux/nomachine_6.11.2_1_x86_64.rpm
 fi
 echo "=="
 dnf -y install $nomachine
@@ -167,7 +170,7 @@ then
 else
 	echo "$bcompare not found."
   echo "== Downloading Beyond Compare =="
-	wget -O bcompare.rpm http://www.scootersoftware.com/bcompare-4.2.6.23150.x86_64.rpm
+	wget -O bcompare.rpm http://scootersoftware.com/bcompare-4.3.5.24893.x86_64.rpm
 fi
 echo "=="
 dnf -y install $bcompare
@@ -177,9 +180,9 @@ echo "== DEVELOPMENT =="
 dnf -y install kernel-devel kernel-headers
 
 dnf -y install filezilla
-dnf -y install subversion
+# dnf -y install subversion
 dnf -y install git
-dnf -y install eclipse
+# dnf -y install eclipse
 
 # = VS CODE (https://code.visualstudio.com/docs/setup/linux) =
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -248,11 +251,11 @@ sudo pip install --upgrade pip
 # dnf config-manager --set-enabled virtualbox
 # dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
 # 
-# dnf -y install VirtualBox-5.2
+# dnf -y install VirtualBox-6.0
 # dnf -y install VirtualBox-guest-additions
 # Rebuild kernel modules
 # /usr/lib/virtualbox/vboxdrv.sh setup
-# usermod -a -G vboxusers [youruserid]
+# usermod -a -G vboxusers $USER
 
 echo "== SETTINGS =="
 # Add global git values
