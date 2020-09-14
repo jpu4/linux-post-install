@@ -132,6 +132,7 @@ dnf -y install unrar
 dnf -y install unzip
 dnf -y install wget
 dnf -y install htop
+dnf -y install ark
 
 echo "Checking for NoMachine..."
 echo "=="
