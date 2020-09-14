@@ -253,6 +253,12 @@ cp autostart/guake.desktop ~/.config/autostart
 # Secure mariadb
 mysql_secure_installation
 
+# https://github.com/RPM-Outpost/typora
+git clone https://github.com/RPM-Outpost/typora.git
+cd typora
+./create-package.sh x64
+
+
 dnf upgrade -y
 dnf clean packages -y
 reboot
