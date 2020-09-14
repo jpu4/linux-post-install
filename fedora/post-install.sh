@@ -73,7 +73,7 @@ echo "=="
 # Signal Desktop for Fedora
 # https://copr.fedorainfracloud.org/coprs/luminoso/Signal-Desktop/
 
-dnf copr enable luminoso/Signal-Desktop
+dnf copr enable luminoso/Signal-Desktop -y
 dnf install -y signal-desktop
 
 
