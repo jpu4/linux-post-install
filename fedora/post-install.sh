@@ -51,7 +51,7 @@ dnf -y install spotify-client
 
 echo "== CHAT =="
 dnf -y install skypeforlinux.x86_64
-dnf -y install pidgin
+# dnf -y install pidgin
 
 echo "=="
 echo "Checking for Slack..."
@@ -101,7 +101,7 @@ echo "== PRODUCTIVITY =="
 dnf -y install focuswriter
 dnf -y install thunderbird
 dnf -y install libreoffice
-dnf -y install hamster-time-tracker
+# dnf -y install hamster-time-tracker
 
 echo "== GRAPHICS =="
 dnf -y install openshot
@@ -109,7 +109,7 @@ dnf -y install digikam
 dnf -y install krita
 
 echo "== SECURITY =="
-dnf -y install keepass
+# dnf -y install keepass
 # UnComment to install and enable tor
 # dnf -y install tor
 # systemctl enable tor
@@ -228,31 +228,13 @@ dnf -y install php-xml
 systemctl enable httpd
 systemctl start httpd
 
-# UnComment for Atom Editor
-# 
-# echo "=="
-# echo "Checking for atom editor..."
-# echo "=="
-# atom="$dlpath/atom.rpm"
-# if [ -f "$atom" ]
-# then
-# 	echo "$atom found. Skipping Download."
-# else
-# 	echo "$atom not found."
-#   echo "== Downloading Atom =="
-#   wget -O atom.rpm https://atom.io/download/rpm
-# fi
-# echo "=="
-# dnf -y install $atom
-# echo "=="
-
 sudo pip install --upgrade pip
 
 # UnComment for VirtualBox
 # 
 # dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 # dnf config-manager --set-enabled virtualbox
-# dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms rpm-build
 # 
 # dnf -y install VirtualBox-6.0
 # dnf -y install VirtualBox-guest-additions
@@ -267,7 +249,6 @@ git config --global user.email "your@email.com"
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
-cp autostart/ownCloud.desktop ~/.config/autostart
 
 # Secure mariadb
 mysql_secure_installation
