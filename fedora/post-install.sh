@@ -28,7 +28,7 @@ dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-r
 ehco "fastestmirror=true" >> /etc/dnf/dnf.conf
 ehco "deltarpm=true" >> /etc/dnf/dnf.conf
 
-dnf copr enable kwizart/fedy
+dnf copr enable kwizart/fedy -y
 dnf install fedy -y
 
 echo "== MEDIA =="
