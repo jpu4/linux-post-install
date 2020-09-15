@@ -4,7 +4,7 @@
 # Date Created: 20171110
 # Description: Fedora Post install (should work for future versions as well).
 # As always, read through each item use the hash symbol "#" to stop a package from installing.
-# I've used individual dnf entries because I've found in the past apps get skipped if there's an error.
+# I've used individual sudo dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
 dlpath="~/Downloads"
@@ -16,42 +16,42 @@ cd $dlpath
 # systemctl start sshd
 
 echo "Remove programs I don't like"
-dnf -y remove amarok dragon
+sudo dnf -y remove amarok dragon
 
 echo "Upgrade system"
-dnf -y upgrade
+sudo dnf -y upgrade
 
 echo "== REPOS =="
-dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-ehco "fastestmirror=true" >> /etc/dnf/dnf.conf
-ehco "deltarpm=true" >> /etc/dnf/dnf.conf
+ehco "fastestmirror=true" >> /etc/sudo dnf/sudo dnf.conf
+ehco "deltarpm=true" >> /etc/sudo dnf/sudo dnf.conf
 
-dnf copr enable kwizart/fedy -y
-dnf install fedy -y
+sudo dnf copr enable kwizart/fedy -y
+sudo dnf install fedy -y
 
 echo "== MEDIA =="
-dnf -y install vlc
-dnf -y install clementine
-dnf -y install gstreamer1
-dnf -y install gstreamer1-plugins-bad-free
-dnf -y install gstreamer1-plugins-bad-free-gtk
-dnf -y install gstreamer1-plugins-base
-dnf -y install gstreamer1-plugins-good
-dnf -y install gstreamer1-plugins-ugly
-dnf -y install gstreamer1-plugins-ugly-free
-dnf -y install kodi
-dnf -y install youtube-dl
-dnf -y install azureus
+sudo dnf -y install vlc
+sudo dnf -y install clementine
+sudo dnf -y install gstreamer1
+sudo dnf -y install gstreamer1-plugins-bad-free
+sudo dnf -y install gstreamer1-plugins-bad-free-gtk
+sudo dnf -y install gstreamer1-plugins-base
+sudo dnf -y install gstreamer1-plugins-good
+sudo dnf -y install gstreamer1-plugins-ugly
+sudo dnf -y install gstreamer1-plugins-ugly-free
+sudo dnf -y install kodi
+sudo dnf -y install youtube-dl
+sudo dnf -y install azureus
 
 sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-dnf -y install spotify-client
+sudo dnf -y install spotify-client
 
 
 echo "== CHAT =="
-dnf -y install skypeforlinux.x86_64
-# dnf -y install pidgin
+sudo dnf -y install skypeforlinux.x86_64
+# sudo dnf -y install pidgin
 
 echo "=="
 echo "Checking for Slack..."
@@ -66,20 +66,20 @@ else
  wget -O $slack https://downloads.slack-edge.com/linux_releases/slack-4.8.0-0.1.fc21.x86_64.rpm
 fi
 echo "=="
-dnf -y install $slack
+sudo dnf -y install $slack
 echo "=="
 
 
 # Signal Desktop for Fedora
 # https://copr.fedorainfracloud.org/coprs/luminoso/Signal-Desktop/
 
-dnf copr enable luminoso/Signal-Desktop -y
-dnf install -y signal-desktop
+sudo dnf copr enable luminoso/Signal-Desktop -y
+sudo dnf install -y signal-desktop
 
 
 echo "== BROWSERS =="
-dnf -y install lynx
-dnf -y install google-chrome-stable
+sudo dnf -y install lynx
+sudo dnf -y install google-chrome-stable
 
 echo "=="
 echo "Checking for Vivaldi Browser..."
@@ -94,45 +94,45 @@ else
   wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-3.1.1929.48-1.x86_64.rpm
 fi
 echo "=="
-dnf -y install $vivaldi
+sudo dnf -y install $vivaldi
 echo "=="
 
 echo "== PRODUCTIVITY =="
-dnf -y install focuswriter
-dnf -y install thunderbird
-dnf -y install libreoffice
-# dnf -y install hamster-time-tracker
+sudo dnf -y install focuswriter
+sudo dnf -y install thunderbird
+sudo dnf -y install libreoffice
+# sudo dnf -y install hamster-time-tracker
 
 echo "== GRAPHICS =="
-dnf -y install openshot
-dnf -y install digikam
-dnf -y install krita
+sudo dnf -y install openshot
+sudo dnf -y install digikam
+sudo dnf -y install krita
 
 echo "== SECURITY =="
-# dnf -y install keepass
+# sudo dnf -y install keepass
 # UnComment to install and enable tor
-# dnf -y install tor
+# sudo dnf -y install tor
 # systemctl enable tor
 # systemctl start tor
 
 echo "== UTILITIES =="
-dnf -y install exfat-utils fuse-exfat fuse
-dnf -y install krename
-dnf -y install guake
-dnf -y install gnome-disk-utility
-dnf -y install gnome-tweak-tool
-dnf -y install krename
-dnf -y install remmina
-dnf -y install nextcloud-client
-dnf -y install solaar
-dnf -y install speedtest-cli
-dnf -y install rsync
-dnf -y install s3cmd
-dnf -y install unrar
-dnf -y install unzip
-dnf -y install wget
-dnf -y install htop
-dnf -y install ark
+sudo dnf -y install exfat-utils fuse-exfat fuse
+sudo dnf -y install krename
+sudo dnf -y install guake
+sudo dnf -y install gnome-disk-utility
+sudo dnf -y install gnome-tweak-tool
+sudo dnf -y install krename
+sudo dnf -y install remmina
+sudo dnf -y install nextcloud-client
+sudo dnf -y install solaar
+sudo dnf -y install speedtest-cli
+sudo dnf -y install rsync
+sudo dnf -y install s3cmd
+sudo dnf -y install unrar
+sudo dnf -y install unzip
+sudo dnf -y install wget
+sudo dnf -y install htop
+sudo dnf -y install ark
 
 echo "Checking for NoMachine..."
 echo "=="
@@ -146,7 +146,7 @@ else
 	wget -O nomachine.rpm https://download.nomachine.com/download/6.2/Linux/nomachine_6.11.2_1_x86_64.rpm
 fi
 echo "=="
-dnf -y install $nomachine
+sudo dnf -y install $nomachine
 echo "=="
 
 
@@ -162,7 +162,7 @@ else
 	wget -O teamviewer.rpm https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 fi
 echo "=="
-dnf -y install $teamviewer
+sudo dnf -y install $teamviewer
 echo "=="
 
 echo "Checking for Beyond Compare..."
@@ -177,55 +177,55 @@ else
 	wget -O bcompare.rpm http://scootersoftware.com/bcompare-4.3.5.24893.x86_64.rpm
 fi
 echo "=="
-dnf -y install $bcompare
+sudo dnf -y install $bcompare
 echo "=="
 
 echo "== DEVELOPMENT =="
-dnf -y install kernel-devel kernel-headers
+sudo dnf -y install kernel-devel kernel-headers
 
-dnf -y install filezilla
-# dnf -y install subversion
-dnf -y install git
-# dnf -y install eclipse
+sudo dnf -y install filezilla
+# sudo dnf -y install subversion
+sudo dnf -y install git
+# sudo dnf -y install eclipse
 
 # = VS CODE (https://code.visualstudio.com/docs/setup/linux) =
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-dnf check-update
-dnf -y install code
+sudo dnf check-update
+sudo dnf -y install code
 
 # == Database ==
 # = MYSQL =
-dnf -y install mysql-workbench-community
-dnf -y install mariadb mariadb-server
+sudo dnf -y install mysql-workbench-community
+sudo dnf -y install mariadb mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
 # = MongoDB =
-dnf -y install mongodb mongodb-server
+sudo dnf -y install mongodb mongodb-server
 service mongod start
 
 # = Node.js =
-dnf -y install nodejs npm
+sudo dnf -y install nodejs npm
 
 # = Apache (httpd+php) =
-dnf -y install httpd
-dnf -y install php
-dnf -y install php-mysqlnd
-dnf -y install php-opcache
-dnf -y install php-pecl-apcu
-dnf -y install php-cli
-dnf -y install php-pear
-dnf -y install php-pdo
-dnf -y install php-mysqlnd
-dnf -y install php-pgsql
-dnf -y install php-pecl-mongodb
-dnf -y install php-pecl-memcache
-dnf -y install php-pecl-memcached
-dnf -y install php-gd
-dnf -y install php-mbstring
-dnf -y install php-mcrypt
-dnf -y install php-xml
+sudo dnf -y install httpd
+sudo dnf -y install php
+sudo dnf -y install php-mysqlnd
+sudo dnf -y install php-opcache
+sudo dnf -y install php-pecl-apcu
+sudo dnf -y install php-cli
+sudo dnf -y install php-pear
+sudo dnf -y install php-pdo
+sudo dnf -y install php-mysqlnd
+sudo dnf -y install php-pgsql
+sudo dnf -y install php-pecl-mongodb
+sudo dnf -y install php-pecl-memcache
+sudo dnf -y install php-pecl-memcached
+sudo dnf -y install php-gd
+sudo dnf -y install php-mbstring
+sudo dnf -y install php-mcrypt
+sudo dnf -y install php-xml
 systemctl enable httpd
 systemctl start httpd
 
@@ -233,20 +233,20 @@ sudo pip install --upgrade pip
 
 # UnComment for VirtualBox
 # 
-# dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
-# dnf config-manager --set-enabled virtualbox
-dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms rpm-build
+# sudo dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+# sudo dnf config-manager --set-enabled virtualbox
+sudo dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
 # 
-# dnf -y install VirtualBox-6.0
-# dnf -y install VirtualBox-guest-additions
+# sudo dnf -y install VirtualBox-6.0
+# sudo dnf -y install VirtualBox-guest-additions
 # Rebuild kernel modules
 # /usr/lib/virtualbox/vboxdrv.sh setup
 # usermod -a -G vboxusers $USER
 
 echo "== SETTINGS =="
 # Add global git values
-git config --global user.name "First Last"
-git config --global user.email "your@email.com"
+git config --global user.name "James Ussery"
+git config --global user.email "james@ussery.me"
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
@@ -254,12 +254,17 @@ cp autostart/guake.desktop ~/.config/autostart
 # Secure mariadb
 mysql_secure_installation
 
+sudo dnf install rpm-build rpmdevtools -y
+
 # https://github.com/RPM-Outpost/typora
 git clone https://github.com/RPM-Outpost/typora.git
 cd typora
 ./create-package.sh x64
 
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.spotify.Client
+flatpak run com.spotify.Client
 
-dnf upgrade -y
-dnf clean packages -y
+sudo dnf upgrade -y
+sudo dnf clean packages -y
 reboot
