@@ -133,6 +133,7 @@ sudo dnf -y install unzip
 sudo dnf -y install wget
 sudo dnf -y install htop
 sudo dnf -y install ark
+sudo dnf -y install fish
 
 echo "Checking for NoMachine..."
 echo "=="
