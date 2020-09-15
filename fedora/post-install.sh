@@ -16,7 +16,7 @@ cd $dlpath
 # systemctl start sshd
 
 echo "Remove programs I don't like"
-sudo dnf -y remove amarok dragon
+sudo dnf -y remove amarok dragon parole
 
 echo "Upgrade system"
 sudo dnf -y upgrade
