@@ -262,9 +262,17 @@ git clone https://github.com/RPM-Outpost/typora.git
 cd typora
 ./create-package.sh x64
 
+# Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Spotify
 flatpak install flathub com.spotify.Client
-flatpak run com.spotify.Client
+
+# Discord
+wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+flatpak install flathub com.discordapp.Discord
+
+
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
