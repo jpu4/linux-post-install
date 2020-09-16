@@ -8,6 +8,13 @@
 #-------------------------------------------------------------------------------------
 
 dlpath="~/Downloads"
+mysqluser=""
+mysqlpass=""
+gitfirstname=""
+gitlastname=""
+gitemail=""
+
+
 cd $dlpath
 
 # UnComment to enable SSH Service
@@ -202,6 +209,10 @@ sudo dnf -y install mariadb mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
+# create admin user
+sudo mysql -u root -e "CREATE USER '$mysqluser'@'%' IDENTIFIED BY '$mysqlpass';"
+sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$mysqluser'@'localhost' WITH GRANT OPTION;"
+
 # = MongoDB =
 sudo dnf -y install mongodb mongodb-server
 service mongod start
@@ -246,8 +257,8 @@ sudo dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel ke
 
 echo "== SETTINGS =="
 # Add global git values
-git config --global user.name "First Last"
-git config --global user.email "Email"
+git config --global user.name "$gitfirstname $gitlastname"
+git config --global user.email "$gitemail"
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
@@ -266,13 +277,12 @@ cd typora
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Spotify
+wget https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref
 flatpak install flathub com.spotify.Client
 
 # Discord
 wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
 flatpak install flathub com.discordapp.Discord
-
-
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
