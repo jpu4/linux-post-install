@@ -246,8 +246,8 @@ sudo dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel ke
 
 echo "== SETTINGS =="
 # Add global git values
-git config --global user.name "James Ussery"
-git config --global user.email "james@ussery.me"
+git config --global user.name "First Last"
+git config --global user.email "Email"
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
