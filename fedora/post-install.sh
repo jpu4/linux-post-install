@@ -259,6 +259,8 @@ echo "== SETTINGS =="
 # Add global git values
 git config --global user.name "$gitfirstname $gitlastname"
 git config --global user.email "$gitemail"
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install -y gh
 
 # Autostart utilities
 cp autostart/guake.desktop ~/.config/autostart
