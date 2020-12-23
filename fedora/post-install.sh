@@ -141,6 +141,7 @@ sudo dnf -y install wget
 sudo dnf -y install htop
 sudo dnf -y install ark
 sudo dnf -y install fish
+sudo dnf -y install ksnip
 
 echo "Checking for NoMachine..."
 echo "=="
