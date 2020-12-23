@@ -55,35 +55,16 @@ sudo dnf -y install azureus
 sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 sudo dnf -y install spotify-client
 
-
 echo "== CHAT =="
 sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
 sudo dnf -y install skypeforlinux
 # sudo dnf -y install pidgin
-
-echo "=="
-echo "Checking for Slack..."
-echo "=="
-slack="$dlpath/slack.rpm"
-if [ -f "$slack" ]
-then
-	echo "$slack found. Skipping Download."
-else
-	echo "$slack not found."
-  echo "== Downloading Slack =="
- wget -O $slack https://downloads.slack-edge.com/linux_releases/slack-4.8.0-0.1.fc21.x86_64.rpm
-fi
-echo "=="
-sudo dnf -y install $slack
-echo "=="
-
+sudo dnf -y install https://downloads.slack-edge.com/linux_releases/slack-4.12.0-0.1.fc21.x86_64.rpm
 
 # Signal Desktop for Fedora
 # https://copr.fedorainfracloud.org/coprs/luminoso/Signal-Desktop/
-
 sudo dnf copr enable luminoso/Signal-Desktop -y
 sudo dnf install -y signal-desktop
-
 
 echo "== BROWSERS =="
 sudo dnf -y install lynx
