@@ -295,6 +295,7 @@ wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
 flatpak install flathub com.discordapp.Discord
 
 sudo dnf -y install zeal
+sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
