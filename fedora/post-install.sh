@@ -220,8 +220,17 @@ service mongod start
 # = Node.js =
 sudo dnf -y install nodejs npm
 
-# = Apache (httpd+php) =
-sudo dnf -y install httpd
+# = Web Service =
+# = Apache (httpd) =
+# sudo dnf -y install httpd
+# systemctl enable httpd
+# systemctl start httpd
+
+# = Nginx =
+sudo dnf -y install nginx
+systemctl enable nginx
+systemctl start nginx
+
 sudo dnf -y install php
 sudo dnf -y install php-mysqlnd
 sudo dnf -y install php-opcache
@@ -238,8 +247,6 @@ sudo dnf -y install php-gd
 sudo dnf -y install php-mbstring
 sudo dnf -y install php-mcrypt
 sudo dnf -y install php-xml
-systemctl enable httpd
-systemctl start httpd
 
 sudo pip install --upgrade pip
 
