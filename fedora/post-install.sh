@@ -294,6 +294,8 @@ flatpak install flathub com.spotify.Client
 wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
 flatpak install flathub com.discordapp.Discord
 
+sudo dnf -y install zeal
+
 sudo dnf upgrade -y
 sudo dnf clean packages -y
 reboot
