@@ -57,7 +57,8 @@ sudo dnf -y install spotify-client
 
 
 echo "== CHAT =="
-sudo dnf -y install skypeforlinux.x86_64
+sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
+sudo dnf -y install skypeforlinux
 # sudo dnf -y install pidgin
 
 echo "=="
