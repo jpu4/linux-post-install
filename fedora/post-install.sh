@@ -88,22 +88,7 @@ sudo dnf install -y signal-desktop
 echo "== BROWSERS =="
 sudo dnf -y install lynx
 sudo dnf -y install google-chrome-stable
-
-echo "=="
-echo "Checking for Vivaldi Browser..."
-echo "=="
-vivaldi="$dlpath/vivaldi.rpm"
-if [ -f "$vivaldi" ]
-then
-	echo "$vivaldi found. Skipping Download."
-else
-	echo "$vivaldi not found."
-  echo "== Downloading Vivaldi as of 20201223 =="
-  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
-fi
-echo "=="
-sudo dnf -y install $vivaldi
-echo "=="
+sudo dnf -y install https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
 
 echo "== PRODUCTIVITY =="
 sudo dnf -y install focuswriter
