@@ -158,22 +158,6 @@ echo "=="
 sudo dnf -y install $nomachine
 echo "=="
 
-
-echo "Checking for TeamViewer..."
-echo "=="
-teamviewer="$dlpath/teamviewer.rpm"
-if [ -f "$teamviewer" ]
-then
-	echo "$teamviewer found. Skipping Download."
-else
-	echo "$teamviewer not found."
-  echo "== Downloading teamviewer =="
-	wget -O teamviewer.rpm https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
-fi
-echo "=="
-sudo dnf -y install $teamviewer
-echo "=="
-
 echo "Checking for Beyond Compare..."
 echo "=="
 bcompare="$dlpath/bcompare.rpm"
@@ -297,6 +281,7 @@ flatpak install flathub com.discordapp.Discord
 sudo dnf -y install zeal
 sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
 sudo dnf -y install https://www.expressvpn.works/clients/linux/expressvpn-3.3.0.21-1.x86_64.rpm
+sudo dnf -y install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
