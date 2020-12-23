@@ -97,8 +97,8 @@ then
 	echo "$vivaldi found. Skipping Download."
 else
 	echo "$vivaldi not found."
-  echo "== Downloading Vivaldi as of 20171110 =="
-  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-3.1.1929.48-1.x86_64.rpm
+  echo "== Downloading Vivaldi as of 20201223 =="
+  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
 fi
 echo "=="
 sudo dnf -y install $vivaldi
