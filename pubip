@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# =============================================
+# Print Public/External IP assigned to your hotspot or router
+# 
+# https://tecadmin.net/5-commands-to-get-public-ip-using-linux-terminal/
+# 
+# Needs to be placed in /usr/local/bin or /usr/bin
+# =============================================
+
+wget http://ipecho.net/plain -O - -q ; echo
