@@ -16,37 +16,37 @@ sudo systemctl start snapd
 sudo systemctl enable snapd
 
 echo "== REPOS =="
-sudo add-apt-repository universe
-sudo add-apt-repository multiverse
-sudo apt config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-sudo apt update
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y multiverse
+sudo apt config-manager -y --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+sudo apt -y update
 
 echo "=== Desktop Environments ==="
 # echo "== Budgie Desktop - Origin: Solus OS =="
-# sudo apt update && sudo apt upgrade
-# sudo apt install ubuntu-budgie-desktop
+# sudo apt -y update && sudo apt upgrade
+# sudo apt -y install ubuntu-budgie-desktop
 
 # echo "== KDE =="
-# sudo apt install kde-full
+# sudo apt -y install kde-full
 
 # echo "== Pantheon - Origin: Elementary =="
-# sudo add-apt-repository ppa:elementary-os/daily
-# sudo add-apt-repository ppa:elementary-os/os-patches
-# sudo add-apt-repository ppa:elementary-os/testing
-# sudo add-apt-repository ppa:mpstark/elementary-tweaks-daily
+# sudo add-apt-repository -y ppa:elementary-os/daily
+# sudo add-apt-repository -y ppa:elementary-os/os-patches
+# sudo add-apt-repository -y ppa:elementary-os/testing
+# sudo add-apt-repository -y ppa:mpstark/elementary-tweaks-daily
 # sudo apt update
-# sudo apt install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
+# sudo apt -y install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
 
 # echo "== LXQT =="
-# sudo apt install lxqt sddm
+# sudo apt -y install lxqt sddm
 
 # echo "== Deepin - Origin: Deepin Linux =="
-# sudo add-apt-repository ppa:ubuntudde-dev/stable
-# sudo apt install ubuntudde-dde
+# sudo add-apt-repository -y ppa:ubuntudde-dev/stable
+# sudo apt -y install ubuntudde-dde
 # sudo dpkg-reconfigure lightdm
 
 echo "== CINNAMON DESKTOP=="
-sudo apt install cinnamon
+sudo apt -y install cinnamon
 
 echo "== MEDIA =="
 sudo apt -y install vlc
