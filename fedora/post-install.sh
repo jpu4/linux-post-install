@@ -14,7 +14,7 @@ gitfirstname=""
 gitlastname=""
 gitemail=""
 
-
+gsettings set org.gnome.desktop.session idle-delay 0
 cd $dlpath
 
 # UnComment to enable SSH Service

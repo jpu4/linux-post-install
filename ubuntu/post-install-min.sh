@@ -6,7 +6,7 @@
 
 dlpath="~/Downloads"
 cd $dlpath
-
+gsettings set org.gnome.desktop.session idle-delay 0
 echo "Upgrade system"
 sudo apt -y upgrade
 sudo apt -y install python

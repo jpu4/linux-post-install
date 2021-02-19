@@ -13,7 +13,7 @@
 #-------------------------------------------------------------------------------------
 
 dlpath="~/Downloads/"
-
+gsettings set org.gnome.desktop.session idle-delay 0
 echo "Remove programs I don't like"
 sudo eopkg -y remove amarok dragon
 
