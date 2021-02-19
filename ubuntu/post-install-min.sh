@@ -52,6 +52,11 @@ vivaldi="$dlpath/vivaldi.deb"
 wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable_3.6.2165.36-1_amd64.deb
 dpkg -i $vivaldi
 
+echo "Teamviewer"
+teamviewer="$dlpath/teamviewer.deb"
+wget -O $teamviewer https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+dpkg -i $teamviewer
+
 echo "== PRODUCTIVITY =="
 sudo apt -y install focuswriter
 sudo apt -y install thunderbird
