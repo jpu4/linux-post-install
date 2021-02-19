@@ -173,18 +173,15 @@ mysql_secure_installation
 
 echo "=== Desktop Environments ==="
 # echo "== Budgie Desktop - Origin: Solus OS =="
-# sudo apt -y update && sudo apt upgrade
+# sudo apt -y update && sudo apt -y upgrade
 # sudo apt -y install ubuntu-budgie-desktop
-
-# echo "== KDE =="
-# sudo apt -y install kde-full
 
 # echo "== Pantheon - Origin: Elementary =="
 # sudo add-apt-repository -y ppa:elementary-os/daily
 # sudo add-apt-repository -y ppa:elementary-os/os-patches
 # sudo add-apt-repository -y ppa:elementary-os/testing
 # sudo add-apt-repository -y ppa:mpstark/elementary-tweaks-daily
-# sudo apt update
+# sudo apt -y update
 # sudo apt -y install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
 
 # echo "== LXQT =="
@@ -197,6 +194,9 @@ echo "=== Desktop Environments ==="
 
 echo "== CINNAMON DESKTOP=="
 sudo apt -y install cinnamon
+
+echo "== KDE =="
+sudo apt -y install kde-full
 
 sudo apt upgrade -y
 reboot

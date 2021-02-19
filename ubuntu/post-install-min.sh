@@ -105,14 +105,10 @@ git config --global user.email "your@email.com"
 # # If you have USB based HP printer, try:
 # hp-setup -b usb
 
-
 echo "=== Desktop Environments ==="
 # echo "== Budgie Desktop - Origin: Solus OS =="
 # sudo apt -y update && sudo apt -y upgrade
 # sudo apt -y install ubuntu-budgie-desktop
-
-# echo "== KDE =="
-# sudo apt -y install kde-full
 
 # echo "== Pantheon - Origin: Elementary =="
 # sudo add-apt-repository -y ppa:elementary-os/daily
@@ -132,6 +128,9 @@ echo "=== Desktop Environments ==="
 
 echo "== CINNAMON DESKTOP=="
 sudo apt -y install cinnamon
+
+echo "== KDE =="
+sudo apt -y install kde-full
 
 sudo apt upgrade -y
 reboot
