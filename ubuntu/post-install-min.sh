@@ -21,33 +21,6 @@ sudo add-apt-repository -y multiverse
 sudo apt -y config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 sudo apt -y update
 
-echo "=== Desktop Environments ==="
-# echo "== Budgie Desktop - Origin: Solus OS =="
-# sudo apt -y update && sudo apt -y upgrade
-# sudo apt -y install ubuntu-budgie-desktop
-
-# echo "== KDE =="
-# sudo apt -y install kde-full
-
-# echo "== Pantheon - Origin: Elementary =="
-# sudo add-apt-repository -y ppa:elementary-os/daily
-# sudo add-apt-repository -y ppa:elementary-os/os-patches
-# sudo add-apt-repository -y ppa:elementary-os/testing
-# sudo add-apt-repository -y ppa:mpstark/elementary-tweaks-daily
-# sudo apt -y update
-# sudo apt -y install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
-
-# echo "== LXQT =="
-# sudo apt -y install lxqt sddm
-
-# echo "== Deepin - Origin: Deepin Linux =="
-# sudo add-apt-repository -y ppa:ubuntudde-dev/stable
-# sudo apt -y install ubuntudde-dde
-# sudo dpkg-reconfigure lightdm
-
-echo "== CINNAMON DESKTOP=="
-sudo apt -y install cinnamon
-
 echo "== MEDIA =="
 sudo apt -y install vlc
 sudo apt -y install clementine
@@ -132,6 +105,33 @@ git config --global user.email "your@email.com"
 # # If you have USB based HP printer, try:
 # hp-setup -b usb
 
+
+echo "=== Desktop Environments ==="
+# echo "== Budgie Desktop - Origin: Solus OS =="
+# sudo apt -y update && sudo apt -y upgrade
+# sudo apt -y install ubuntu-budgie-desktop
+
+# echo "== KDE =="
+# sudo apt -y install kde-full
+
+# echo "== Pantheon - Origin: Elementary =="
+# sudo add-apt-repository -y ppa:elementary-os/daily
+# sudo add-apt-repository -y ppa:elementary-os/os-patches
+# sudo add-apt-repository -y ppa:elementary-os/testing
+# sudo add-apt-repository -y ppa:mpstark/elementary-tweaks-daily
+# sudo apt -y update
+# sudo apt -y install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
+
+# echo "== LXQT =="
+# sudo apt -y install lxqt sddm
+
+# echo "== Deepin - Origin: Deepin Linux =="
+# sudo add-apt-repository -y ppa:ubuntudde-dev/stable
+# sudo apt -y install ubuntudde-dde
+# sudo dpkg-reconfigure lightdm
+
+echo "== CINNAMON DESKTOP=="
+sudo apt -y install cinnamon
 
 sudo apt upgrade -y
 reboot
