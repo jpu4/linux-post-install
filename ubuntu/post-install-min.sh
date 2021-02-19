@@ -123,5 +123,14 @@ echo "== SETTINGS =="
 git config --global user.name "First Last"
 git config --global user.email "your@email.com"
 
+# echo "=== DRIVERS ==="
+# echo "== HP Printer/scanner =="
+# # https://www.cyberciti.biz/faq/how-to-install-networked-hp-printer-and-scanner-on-ubuntu-linux/
+# sudo apt install hplip hplip-gui
+# # hp-setup
+# # If you have USB based HP printer, try:
+# hp-setup -b usb
+
+
 sudo apt upgrade -y
 reboot
