@@ -19,6 +19,8 @@ echo "== REPOS =="
 sudo add-apt-repository -y universe
 sudo add-apt-repository -y multiverse
 sudo apt -y config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 sudo apt -y update
 
 echo "== MEDIA =="
@@ -54,6 +56,7 @@ echo "== PRODUCTIVITY =="
 sudo apt -y install focuswriter
 sudo apt -y install thunderbird
 sudo apt -y install libreoffice
+sudo apt -y install typora
 
 echo "== GRAPHICS =="
 sudo apt -y install digikam
