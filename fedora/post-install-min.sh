@@ -8,6 +8,7 @@
 # I've used individual sudo dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.screensaver lock-enabled false
 dlpath="~/Downloads"
 cd $dlpath
 

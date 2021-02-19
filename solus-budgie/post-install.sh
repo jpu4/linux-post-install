@@ -14,6 +14,7 @@
 
 dlpath="~/Downloads/"
 gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.screensaver lock-enabled false
 echo "Remove programs I don't like"
 sudo eopkg -y remove amarok dragon
 

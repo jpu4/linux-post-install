@@ -7,6 +7,7 @@
 dlpath="~/Downloads"
 cd $dlpath
 gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.screensaver lock-enabled false
 echo "Upgrade system"
 sudo apt -y upgrade
 sudo apt -y install python

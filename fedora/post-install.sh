@@ -15,6 +15,7 @@ gitlastname=""
 gitemail=""
 
 gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.screensaver lock-enabled false
 cd $dlpath
 
 # UnComment to enable SSH Service
