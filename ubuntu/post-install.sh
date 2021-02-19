@@ -11,21 +11,42 @@ cd $dlpath
 echo "Upgrade system"
 sudo apt -y upgrade
 sudo apt -y install python
+sudo apt -y install snapd
+sudo systemctl start snapd
+sudo systemctl enable snapd
 
-# echo "== REPOS =="
+echo "== REPOS =="
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+sudo apt update
 
+echo "=== Desktop Environments ==="
+# echo "== Budgie Desktop - Origin: Solus OS =="
+# sudo apt update && sudo apt upgrade
+# sudo apt install ubuntu-budgie-desktop
 
-echo "== Desktop Environments =="
-# Budgie Desktop - Origin: Solus OS
+# echo "== KDE =="
+# sudo apt install kde-full
 
-# KDE
+# echo "== Pantheon - Origin: Elementary =="
+# sudo add-apt-repository ppa:elementary-os/daily
+# sudo add-apt-repository ppa:elementary-os/os-patches
+# sudo add-apt-repository ppa:elementary-os/testing
+# sudo add-apt-repository ppa:mpstark/elementary-tweaks-daily
+# sudo apt update
+# sudo apt install elementary-theme elementary-icon-theme elementary-default-settings elementary-desktop elementary-tweaks
 
-# Pantheon - Origin: Elementary
+# echo "== LXQT =="
+# sudo apt install lxqt sddm
 
-# LXQT
+# echo "== Deepin - Origin: Deepin Linux =="
+# sudo add-apt-repository ppa:ubuntudde-dev/stable
+# sudo apt install ubuntudde-dde
+# sudo dpkg-reconfigure lightdm
 
-# Deepin - Origin: Deepin Linux
-
+echo "== CINNAMON DESKTOP=="
+sudo apt install cinnamon
 
 echo "== MEDIA =="
 sudo apt -y install vlc
@@ -50,21 +71,10 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/sudo apt xenial main" 
 sudo apt update && sudo apt -y install signal-desktop
 
 echo "== BROWSERS =="
-echo "=="
-echo "Checking for Vivaldi Browser..."
-echo "=="
+echo "Vivaldi"
 vivaldi="$dlpath/vivaldi.deb"
-if [ -f "$vivaldi" ]
-then
-  echo "$vivaldi found. Skipping Download."
-else
-  echo "$vivaldi not found."
-  echo "== Downloading Vivaldi as of 20190621 =="
-  wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable_2.6.1566.40-1_amd64.deb
-fi
-echo "=="
+wget -O $vivaldi https://downloads.vivaldi.com/stable/vivaldi-stable_3.6.2165.36-1_amd64.deb
 dpkg -i $vivaldi
-echo "=="
 
 echo "== PRODUCTIVITY =="
 sudo apt -y install focuswriter
@@ -118,8 +128,13 @@ sudo apt -y install ffmpeg
 sudo apt -y install jpegoptim
 sudo apt -y install jhead
 
-# Bitwarden
-# https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm
+echo "=== SECURITY ==="
+
+echo "== Bitwarden =="
+sudo snap install bitwarden
+
+echo "== SPEEDIFY =="
+wget -qO- https://get.speedify.com | sudo -E bash -
 
 # S3 Tools
 # sudo apt -y install s3cmd
