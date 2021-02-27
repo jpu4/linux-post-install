@@ -69,6 +69,7 @@ sudo eopkg -y install java
 sudo eopkg -y install vim
 sudo eopkg -y install curl
 sudo eopkg -y install fish
+sudo eopkg -y install nextcloud-client
 
 echo "== DEVELOPMENT =="
 sudo eopkg -y install filezilla
