@@ -21,6 +21,8 @@ sudo systemctl start snapd
 sudo systemctl enable snapd
 sudo snap install core
 sudo systemctl restart snapd
+sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/
+sudo usysconf run apparmor -f
 
 echo "Remove programs I don't like"
 sudo eopkg -y remove amarok dragon
