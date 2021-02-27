@@ -19,6 +19,8 @@ gsettings set org.gnome.desktop.screensaver lock-enabled false
 sudo eopkg -y install snapd
 sudo systemctl start snapd
 sudo systemctl enable snapd
+sudo snap install core
+sudo systemctl restart snapd
 
 echo "Remove programs I don't like"
 sudo eopkg -y remove amarok dragon
