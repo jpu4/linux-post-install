@@ -28,6 +28,9 @@ sudo eopkg -y upgrade
 
 echo "== GAMING =="
 # sudo eopkg -y install steam
+sudo eopkg -y install minetest
+sudo eopkg -y install supertuxkart
+sudo snap install mc-installer
 
 echo "== MEDIA =="
 sudo eopkg -y install vlc
@@ -92,9 +95,9 @@ sudo systemctl start nginx
 sudo eopkg -y install pip
 pip install --upgrade pip
 
-sudo eopkg -y install virtualbox
-sudo eopkg -y install virtualbox-common
-sudo eopkg -y install virtualbox-current
+# sudo eopkg -y install virtualbox
+# sudo eopkg -y install virtualbox-common
+# sudo eopkg -y install virtualbox-current
 
 echo "== THIRD PARTY SOFTWARE =="
 
