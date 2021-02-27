@@ -131,10 +131,6 @@ sudo eopkg it skype*.eopkg;sudo rm *.eopkg
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/im/slack-desktop/pspec.xml
 sudo eopkg it slack-desktop*.eopkg;sudo rm slack-desktop*.eopkg
 
-# VIVALDI FLASH
-sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/solus-project/3rd-party/master/multimedia/video/flash-player-ppapi/pspec.xml
-sudo eopkg it flash-player-ppapi*. eopkg;rm flash-player-ppapi*. eopkg
-
 # TEAMVIEWER
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/util/teamviewer/pspec.xml
 sudo eopkg it teamviewer*.eopkg;sudo rm teamviewer*.eopkg
