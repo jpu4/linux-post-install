@@ -33,7 +33,6 @@ echo "== MEDIA =="
 sudo eopkg -y install vlc
 sudo eopkg -y install kodi
 sudo eopkg -y install youtube-dl
-sudo eopkg -y install youtube-dl-gui
 
 echo "== CHAT =="
 # sudo eopkg -y install discord
@@ -47,20 +46,16 @@ sudo eopkg -y install vivaldi-stable
 
 echo "== PRODUCTIVITY =="
 sudo eopkg -y install focuswriter
-sudo eopkg -y install thunderbird
-sudo eopkg -y install libreoffice
 sudo snap install typora
 
 echo "== UTILITIES =="
 sudo eopkg -y install guake
 sudo eopkg -y install gnome-disk-utility
-sudo eopkg -y install gnome-tweak-tool
 sudo eopkg -y install krename
 sudo eopkg -y install remmina
 sudo eopkg -y install solaar
 sudo eopkg -y install speedtest-cli
 sudo eopkg -y install rsync
-sudo eopkg -y install s3cmd
 sudo eopkg -y install unrar
 sudo eopkg -y install unzip
 sudo eopkg -y install wget
@@ -86,27 +81,11 @@ mysql_secure_installation
 # sudo systemctl start mongod
 
 # = Node.js =
-sudo eopkg -y install nodejs npm
+sudo eopkg -y install nodejs
 
 # = Apache (httpd+php) =
 sudo eopkg -y install nginx
 sudo eopkg -y install php
-sudo eopkg -y install php-mysqlnd
-sudo eopkg -y install php-opcache
-sudo eopkg -y install php-pecl-apcu
-sudo eopkg -y install php-cli
-sudo eopkg -y install php-pear
-sudo eopkg -y install php-pdo
-sudo eopkg -y install php-mysqlnd
-sudo eopkg -y install php-pgsql
-sudo eopkg -y install php-pecl-mongodb
-sudo eopkg -y install php-pecl-memcache
-sudo eopkg -y install php-pecl-memcached
-sudo eopkg -y install php-gd
-sudo eopkg -y install php-mbstring
-sudo eopkg -y install php-mcrypt
-sudo eopkg -y install php-xml
-sudo eopkg -y install php-zip
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
