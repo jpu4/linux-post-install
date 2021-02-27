@@ -15,6 +15,11 @@
 dlpath="~/Downloads/"
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
+
+sudo eopkg -y install snapd
+sudo systemctl start snapd
+sudo systemctl enable snapd
+
 echo "Remove programs I don't like"
 sudo eopkg -y remove amarok dragon
 
@@ -31,7 +36,9 @@ sudo eopkg -y install youtube-dl
 sudo eopkg -y install youtube-dl-gui
 
 echo "== CHAT =="
-sudo eopkg -y install discord
+# sudo eopkg -y install discord
+sudo snap install discord
+snap connect discord:system-observe
 sudo eopkg -y install signal-desktop
 
 echo "== BROWSERS =="
@@ -42,6 +49,7 @@ echo "== PRODUCTIVITY =="
 sudo eopkg -y install focuswriter
 sudo eopkg -y install thunderbird
 sudo eopkg -y install libreoffice
+sudo snap install typora
 
 echo "== UTILITIES =="
 sudo eopkg -y install guake
@@ -66,16 +74,16 @@ sudo eopkg -y install vscode
 echo "== Database =="
 # = MYSQL =
 sudo eopkg -y install mariadb mariadb-server
-systemctl enable mariadb
-systemctl start mariadb
-sudo eopkg -y install dbeaver
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
+sudo snap install mysql-workbench-community
 
 # Secure mariadb
 mysql_secure_installation
 
 # = MongoDB =
-sudo eopkg -y install mongodb mongodb-tools
-systemctl start mongod
+# sudo eopkg -y install mongodb mongodb-tools
+# sudo systemctl start mongod
 
 # = Node.js =
 sudo eopkg -y install nodejs npm
@@ -98,8 +106,9 @@ sudo eopkg -y install php-gd
 sudo eopkg -y install php-mbstring
 sudo eopkg -y install php-mcrypt
 sudo eopkg -y install php-xml
-systemctl enable nginx
-systemctl start nginx
+sudo eopkg -y install php-zip
+sudo systemctl enable nginx
+sudo systemctl start nginx
 
 sudo eopkg -y install pip
 pip install --upgrade pip
@@ -107,7 +116,6 @@ pip install --upgrade pip
 sudo eopkg -y install virtualbox
 sudo eopkg -y install virtualbox-common
 sudo eopkg -y install virtualbox-current
-
 
 echo "== THIRD PARTY SOFTWARE =="
 
@@ -123,14 +131,6 @@ sudo eopkg it skype*.eopkg;sudo rm *.eopkg
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/im/slack-desktop/pspec.xml
 sudo eopkg it slack-desktop*.eopkg;sudo rm slack-desktop*.eopkg
 
-# CHROME
-sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/web/browser/google-chrome-stable/pspec.xml
-sudo eopkg it google-chrome-*.eopkg;sudo rm google-chrome-*.eopkg
-
-# GOOGLE TALK
-sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/im/google-talkplugin/pspec.xml
-sudo eopkg it google-talkplugin*.eopkg;sudo rm google-talkplugin*.eopkg
-
 # VIVALDI FLASH
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/solus-project/3rd-party/master/multimedia/video/flash-player-ppapi/pspec.xml
 sudo eopkg it flash-player-ppapi*. eopkg;rm flash-player-ppapi*. eopkg
@@ -143,11 +143,6 @@ sudo systemctl start teamviewerd.service
 # MICROSOFT CORE FONTS
 sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/desktop/font/mscorefonts/pspec.xml
 sudo eopkg it mscorefonts*.eopkg;sudo rm mscorefonts*.eopkg
-
-# GITKRAKEN
-sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/programming/gitkraken/pspec.xml
-sudo eopkg it gitkraken*.eopkg;sudo rm gitkraken*.eopkg
-
 
 echo "== SETTINGS =="
 # Add global git values
