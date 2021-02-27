@@ -2,7 +2,7 @@
 
 # Author: James Ussery <James@Ussery.me>
 # Date Created: 20180314
-# Date Updated: 20200830
+# Date Updated: 20210227
 # Description: Solus Budgie Post install.
 # As always, read through each item use the hash symbol "#" to stop a package from installing.
 # I've used individual eopkg entries because I've found in the past apps get skipped if there's an error.
