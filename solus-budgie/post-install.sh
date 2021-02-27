@@ -53,7 +53,6 @@ sudo snap install typora
 
 echo "== UTILITIES =="
 sudo eopkg -y install guake
-sudo eopkg -y install gnome-disk-utility
 sudo eopkg -y install krename
 sudo eopkg -y install remmina
 sudo eopkg -y install solaar
@@ -63,6 +62,10 @@ sudo eopkg -y install unrar
 sudo eopkg -y install unzip
 sudo eopkg -y install wget
 sudo eopkg -y install htop
+sudo eopkg -y install java
+sudo eopkg -y install vim
+sudo eopkg -y install curl
+sudo eopkg -y install fish
 
 echo "== DEVELOPMENT =="
 sudo eopkg -y install filezilla
