@@ -137,8 +137,8 @@ sudo eopkg it mscorefonts*.eopkg;sudo rm mscorefonts*.eopkg
 
 echo "== SETTINGS =="
 # Add global git values
-git config --global user.name "James Ussery"
-git config --global user.email "james@ussery.me"
+git config --global user.name "First Last"
+git config --global user.email "email@domain.com"
 
 
 sudo eopkg upgrade -y
