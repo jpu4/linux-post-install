@@ -65,7 +65,6 @@ sudo eopkg -y install unrar
 sudo eopkg -y install unzip
 sudo eopkg -y install wget
 sudo eopkg -y install htop
-sudo eopkg -y install java
 sudo eopkg -y install vim
 sudo eopkg -y install curl
 sudo eopkg -y install fish
@@ -98,6 +97,9 @@ sudo eopkg -y install nginx
 sudo eopkg -y install php
 sudo systemctl enable nginx
 sudo systemctl start nginx
+sudo mkdir -p /etc/nginx/conf.d/
+# cd /etc/nginx/conf.d
+# sudo ln -s ~/websrv/nginx/conf/my.conf
 
 sudo eopkg -y install pip
 pip install --upgrade pip
