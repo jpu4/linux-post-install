@@ -100,6 +100,10 @@ sudo systemctl start nginx
 sudo mkdir -p /etc/nginx/conf.d/
 # cd /etc/nginx/conf.d
 # sudo ln -s ~/websrv/nginx/conf/my.conf
+groupadd webdev
+useradd -g webdev $USER
+useradd -g webdev nginx
+useradd -g webdev www-data
 
 sudo eopkg -y install pip
 pip install --upgrade pip
