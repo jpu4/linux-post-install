@@ -44,7 +44,7 @@ sudo eopkg -y install youtube-dl
 echo "== CHAT =="
 # sudo eopkg -y install discord
 sudo eopkg -y install discord
-sudo eopkg -y install signal-desktop # this is in eopkg but errors out on command line and works from software center
+sudo eopkg -y install signal-desktop
 
 echo "== BROWSERS =="
 # VIVALDI
