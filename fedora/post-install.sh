@@ -202,13 +202,8 @@ git config --global user.email "$gitemail"
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install -y gh
 
-# Autostart utilities
-cp autostart/guake.desktop ~/.config/autostart
-
 # Secure mariadb
 mysql_secure_installation
-
-sudo dnf install rpm-build rpmdevtools -y
 
 # https://github.com/RPM-Outpost/typora
 git clone https://github.com/RPM-Outpost/typora.git
