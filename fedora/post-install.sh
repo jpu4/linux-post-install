@@ -189,6 +189,16 @@ sudo dnf -y install php-xml
 pip install --user
 pip install --upgrade pip
 
+echo "=== VIRTUALIZATION ==="
+echo "== QEMU and Virt Manager =="
+sudo dnf group install -y --with-optional virtualization
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+sudo sed -i 's|# unix_sock_group|unix_sock_group|g' /etc/libvirt/libvirtd.conf
+sudo sed -i 's|# unix_sock_rw_perms|unix_sock_rw_perms|g' /etc/libvirt/libvirtd.conf
+sudo usermod -a -G libvirt $USER
+sudo systemctl restart libvirtd
+
 # UnComment for VirtualBox
 # sudo dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 # sudo dnf config-manager --set-enabled virtualbox
