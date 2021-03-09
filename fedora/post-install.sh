@@ -32,9 +32,23 @@ sudo dnf -y upgrade
 echo "== REPOS =="
 sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo touch /etc/yum.repos.d/mysql-community.repo
+sudo echo "
+[mysql80-community]
+name=MySQL 8.0 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-8.0-community/fc/$releasever/$basearch/
+enabled=1
+gpgcheck=0" > /etc/yum.repos.d/mysql-community.repo
+sudo dnf -y install mysql-community-server
+sudo systemctl enable mysqld.service
+sudo systemctl start mysqld.service
+grep 'A temporary password is generated' /var/log/mysqld.log | tail -1
+sudo mysql_secure_installation
 
-ehco "fastestmirror=true" >> /etc/sudo dnf/sudo dnf.conf
-ehco "deltarpm=true" >> /etc/sudo dnf/sudo dnf.conf
+sudo dnf config-manager --setopt=fastestmirror=True --save
+sudo dnf config-manager --setopt=deltarpm=true --save
+# sudo echo "fastestmirror=true" >> /etc/dnf.conf
+# sudo echo "deltarpm=true" >> /etc/dnf.conf
 
 sudo dnf copr enable kwizart/fedy -y
 sudo dnf install fedy -y
@@ -82,6 +96,7 @@ echo "== GRAPHICS =="
 sudo dnf -y install openshot
 sudo dnf -y install digikam
 sudo dnf -y install krita
+sudo dnf -y install kdenlive
 
 echo "== SECURITY =="
 # sudo dnf -y install keepass
@@ -101,83 +116,50 @@ sudo dnf -y install remmina
 sudo dnf -y install nextcloud-client
 sudo dnf -y install solaar
 sudo dnf -y install speedtest-cli
+
+sudo yum install wget
+wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
+sudo mv bintray-ookla-rhel.repo /etc/yum.repos.d/
+sudo yum install speedtest
+
 sudo dnf -y install rsync
 sudo dnf -y install s3cmd
 sudo dnf -y install unrar
 sudo dnf -y install unzip
 sudo dnf -y install wget
 sudo dnf -y install htop
+sudo dnf -y install vim
 sudo dnf -y install ark
 sudo dnf -y install fish
 sudo dnf -y install ksnip
-
-echo "Checking for NoMachine..."
-echo "=="
-nomachine="$dlpath/NoMachine.rpm"
-if [ -f "$nomachine" ]
-then
-	echo "$nomachine found. Skipping Download."
-else
-	echo "$nomachine not found."
-  echo "== Downloading NoMachine =="
-	wget -O nomachine.rpm https://download.nomachine.com/download/6.2/Linux/nomachine_6.11.2_1_x86_64.rpm
-fi
-echo "=="
-sudo dnf -y install $nomachine
-echo "=="
-
-echo "Checking for Beyond Compare..."
-echo "=="
-bcompare="$dlpath/bcompare.rpm"
-if [ -f "$bcompare" ]
-then
-	echo "$bcompare found. Skipping Download."
-else
-	echo "$bcompare not found."
-  echo "== Downloading Beyond Compare =="
-	wget -O bcompare.rpm http://scootersoftware.com/bcompare-4.3.5.24893.x86_64.rpm
-fi
-echo "=="
-sudo dnf -y install $bcompare
-echo "=="
+sudo dnf -y install filezilla
+sudo dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+sudo dnf -y install rpm-build rpmdevtools
+sudo dnf -y install https://download.nomachine.com/download/6.2/Linux/nomachine_6.11.2_1_x86_64.rpm
+sudo dnf -y install http://scootersoftware.com/bcompare-4.3.5.24893.x86_64.rpm
 
 echo "== DEVELOPMENT =="
 sudo dnf -y install kernel-devel kernel-headers
-
-sudo dnf -y install filezilla
-# sudo dnf -y install subversion
 sudo dnf -y install git
-# sudo dnf -y install eclipse
-
-# = VS CODE (https://code.visualstudio.com/docs/setup/linux) =
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-sudo dnf check-update
-sudo dnf -y install code
-
-# == Database ==
-# = MYSQL =
-sudo dnf -y install mysql-workbench-community
+sudo dnf -y install mongodb mongodb-server
+sudo systemctl start mongod
+sudo dnf -y install nodejs npm
+sudo dnf -y install https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-1.fc33.x86_64.rpm
 sudo dnf -y install mariadb mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
+sudo rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
+sudo dnf -y install codium
+
+sudo dnf check-update
+sudo dnf -y install code
+
 # create admin user
-sudo mysql -u root -e "CREATE USER '$mysqluser'@'%' IDENTIFIED BY '$mysqlpass';"
+sudo mysql -u root -e "CREATE USER '$mysqluser'@'localhost' IDENTIFIED BY '$mysqlpass';"
 sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$mysqluser'@'localhost' WITH GRANT OPTION;"
-
-# = MongoDB =
-sudo dnf -y install mongodb mongodb-server
-service mongod start
-
-# = Node.js =
-sudo dnf -y install nodejs npm
-
-# = Web Service =
-# = Apache (httpd) =
-# sudo dnf -y install httpd
-# systemctl enable httpd
-# systemctl start httpd
+sudo mysql -u root -e "GRANT ALL ON *.* TO '$mysqluser'@'localhost' IDENTIFIED BY '$mysqlpass' WITH GRANT OPTION;"
 
 # = Nginx =
 sudo dnf -y install nginx
@@ -201,14 +183,12 @@ sudo dnf -y install php-mbstring
 sudo dnf -y install php-mcrypt
 sudo dnf -y install php-xml
 
-sudo pip install --upgrade pip
+pip install --user
+pip install --upgrade pip
 
 # UnComment for VirtualBox
-# 
 # sudo dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 # sudo dnf config-manager --set-enabled virtualbox
-sudo dnf -y install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
-# 
 # sudo dnf -y install VirtualBox-6.0
 # sudo dnf -y install VirtualBox-guest-additions
 # Rebuild kernel modules
@@ -240,11 +220,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Spotify
 wget https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref
-flatpak install flathub com.spotify.Client
+flatpak install -y flathub com.spotify.Client
 
 # Discord
 wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
-flatpak install flathub com.discordapp.Discord
+flatpak install -y flathub com.discordapp.Discord
 
 sudo dnf -y install zeal
 sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
