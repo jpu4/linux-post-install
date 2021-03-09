@@ -35,18 +35,17 @@ sudo dnf -y upgrade
 echo "== REPOS =="
 sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo touch /etc/yum.repos.d/mysql-community.repo
-sudo echo "
-[mysql80-community]
-name=MySQL 8.0 Community Server
-baseurl=http://repo.mysql.com/yum/mysql-8.0-community/fc/$releasever/$basearch/
-enabled=1
-gpgcheck=0" > /etc/yum.repos.d/mysql-community.repo
-sudo dnf -y install mysql-community-server
-sudo systemctl enable mysqld.service
-sudo systemctl start mysqld.service
-grep 'A temporary password is generated' /var/log/mysqld.log | tail -1
-sudo mysql_secure_installation
+# sudo touch /etc/yum.repos.d/mysql-community.repo
+# sudo echo "
+# [mysql80-community]
+# name=MySQL 8.0 Community Server
+# baseurl=http://repo.mysql.com/yum/mysql-8.0-community/fc/$releasever/$basearch/
+# enabled=1
+# gpgcheck=0" > /etc/yum.repos.d/mysql-community.repo
+# sudo dnf -y install mysql-community-server
+# sudo systemctl enable mysqld.service
+# sudo systemctl start mysqld.service
+# grep 'A temporary password is generated' /var/log/mysqld.log | tail -1
 
 sudo dnf config-manager --setopt=fastestmirror=True --save
 sudo dnf config-manager --setopt=deltarpm=true --save
@@ -148,7 +147,7 @@ sudo dnf -y install mongodb mongodb-server
 sudo systemctl start mongod
 sudo dnf -y install nodejs npm
 sudo dnf -y install https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-1.fc33.x86_64.rpm
-sudo dnf -y install mariadb mariadb-server
+sudo dnf -y install mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
