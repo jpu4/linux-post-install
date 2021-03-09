@@ -14,6 +14,9 @@ gitfirstname=""
 gitlastname=""
 gitemail=""
 
+setenforce 0
+sudo sed -i 's|SELinux=enforcing|SELinux=disabled|g' /etc/sysconfig/selinux
+
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 cd $dlpath
