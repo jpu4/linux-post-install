@@ -236,7 +236,20 @@ flatpak install -y flathub com.discordapp.Discord
 sudo dnf -y install zeal
 sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
 sudo dnf -y install https://www.expressvpn.works/clients/linux/expressvpn-3.3.0.21-1.x86_64.rpm
+
+# Teamviewer
 sudo dnf -y install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+# anydesk
+cat > /etc/yum.repos.d/AnyDesk-Fedora.repo << "EOF" 
+[anydesk]
+name=AnyDesk Fedora - stable
+baseurl=http://rpm.anydesk.com/fedora/$basearch/
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
+EOF
+sudo dnf install anydesk
+
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
