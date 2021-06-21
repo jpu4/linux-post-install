@@ -248,7 +248,8 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
-sudo dnf install anydesk
+sudo dnf install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Addons/Packages/pangox-compat-0.0.2-2.sdl7.x86_64.rpm
+sudo dnf install -y anydesk
 
 
 sudo dnf upgrade -y
