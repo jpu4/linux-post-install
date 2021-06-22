@@ -55,6 +55,7 @@ sudo eopkg -y install focuswriter
 sudo snap install typora
 
 echo "== UTILITIES =="
+sudo eopkg -y install budgie-window-shuffler
 sudo eopkg -y install guake
 sudo eopkg -y install krename
 sudo eopkg -y install kompare
