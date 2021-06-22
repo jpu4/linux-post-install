@@ -57,6 +57,7 @@ sudo snap install typora
 echo "== UTILITIES =="
 sudo eopkg -y install guake
 sudo eopkg -y install krename
+sudo eopkg -y install kompare
 sudo eopkg -y install remmina
 sudo eopkg -y install solaar
 sudo eopkg -y install speedtest-cli
@@ -95,6 +96,12 @@ sudo eopkg -y install nodejs
 # = Apache (httpd+php) =
 sudo eopkg -y install nginx
 sudo eopkg -y install php
+sudo eopkg -y install xdebug
+sudo eopkg -y install composer
+sudo eopkg -y install dbeaver
+sudo eopkg -y install umbrello
+sudo eopkg -y install zeal
+sudo eopkg -y install yarn
 sudo systemctl enable nginx
 sudo systemctl start nginx
 sudo mkdir -p /etc/nginx/conf.d/
