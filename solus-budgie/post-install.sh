@@ -71,6 +71,7 @@ sudo eopkg -y install vim
 sudo eopkg -y install curl
 sudo eopkg -y install fish
 sudo eopkg -y install flameshot
+sudo eopkg -y install obs-studio
 sudo eopkg -y install nextcloud-client
 sudo eopkg -y install pencil
 sudo snap install bitwarden
