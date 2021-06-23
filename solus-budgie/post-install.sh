@@ -2,7 +2,7 @@
 
 # Author: James Ussery <James@Ussery.me>
 # Date Created: 20180314
-# Date Updated: 20210227
+# Date Updated: 20210623
 # Description: Solus Budgie Post install.
 # As always, read through each item use the hash symbol "#" to stop a package from installing.
 # I've used individual eopkg entries because I've found in the past apps get skipped if there's an error.
@@ -13,6 +13,11 @@
 #-------------------------------------------------------------------------------------
 
 dlpath="~/Downloads/"
+
+# Local MySQL admin
+DBUSER=""
+DBPASS=""
+
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 
@@ -90,8 +95,12 @@ sudo systemctl enable mariadb
 sudo systemctl start mariadb
 sudo snap install mysql-workbench-community
 
+# Create db admin
+CREATE USER '$DBUSER'@'localhost' IDENTIFIED BY '$DBPASS';
+GRANT ALL PRIVILEGES ON *.* TO '$DBUSER'@'localhost';
+
 # Secure mariadb
-mysql_secure_installation
+# mysql_secure_installation
 
 # = MongoDB =
 # sudo eopkg -y install mongodb mongodb-tools
