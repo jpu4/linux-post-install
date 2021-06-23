@@ -40,6 +40,10 @@ echo "== MEDIA =="
 sudo eopkg -y install vlc
 sudo eopkg -y install kodi
 sudo eopkg -y install youtube-dl
+sudo eopkg -y install flameshot
+sudo eopkg -y install obs-studio
+sudo eopkg -y install digikam
+sudo eopkg -y install krita
 
 echo "== CHAT =="
 # sudo eopkg -y install discord
@@ -70,8 +74,6 @@ sudo eopkg -y install htop
 sudo eopkg -y install vim
 sudo eopkg -y install curl
 sudo eopkg -y install fish
-sudo eopkg -y install flameshot
-sudo eopkg -y install obs-studio
 sudo eopkg -y install nextcloud-client
 sudo eopkg -y install pencil
 sudo snap install bitwarden
