@@ -87,6 +87,8 @@ echo "== DEVELOPMENT =="
 sudo eopkg -y install filezilla
 sudo eopkg -y install git
 sudo eopkg -y install vscode
+sudo snap install notepadqq
+sudo snap install postman
 
 echo "== Database =="
 # = MYSQL =
