@@ -89,6 +89,7 @@ sudo eopkg -y install git
 sudo eopkg -y install vscode
 sudo snap install notepadqq
 sudo snap install postman
+sudo snap install laravel-docs-app --edge
 
 echo "== Database =="
 # = MYSQL =
