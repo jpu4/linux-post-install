@@ -16,6 +16,7 @@ gitemail=""
 
 setenforce 0
 sudo sed -i 's|SELinux=enforcing|SELinux=permissive|g' /etc/sysconfig/selinux
+grubby --update-kernel ALL --args selinux=0
 
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
