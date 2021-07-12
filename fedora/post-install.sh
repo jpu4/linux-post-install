@@ -168,7 +168,7 @@ sudo dnf -y install nginx
 systemctl enable nginx
 systemctl start nginx
 
-sudo dnf -y install php
+sudo dnf -y install php-fpm
 sudo dnf -y install php-mysqlnd
 sudo dnf -y install php-opcache
 sudo dnf -y install php-pecl-apcu
