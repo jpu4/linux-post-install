@@ -70,9 +70,6 @@ sudo dnf -y install kodi
 sudo dnf -y install youtube-dl
 sudo dnf -y install azureus
 
-sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-sudo dnf -y install spotify-client
-
 echo "== CHAT =="
 sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
 sudo dnf -y install skypeforlinux
@@ -86,7 +83,7 @@ sudo dnf install -y signal-desktop
 
 echo "== BROWSERS =="
 sudo dnf -y install lynx
-sudo dnf -y install google-chrome-stable
+# sudo dnf -y install google-chrome-stable
 sudo dnf -y install https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
 
 echo "== PRODUCTIVITY =="
@@ -96,10 +93,10 @@ sudo dnf -y install libreoffice
 # sudo dnf -y install hamster-time-tracker
 
 echo "== GRAPHICS =="
-sudo dnf -y install openshot
+# sudo dnf -y install openshot
 sudo dnf -y install digikam
 sudo dnf -y install krita
-sudo dnf -y install kdenlive
+# sudo dnf -y install kdenlive
 
 echo "== SECURITY =="
 # sudo dnf -y install keepass
@@ -118,7 +115,7 @@ sudo dnf -y install krename
 sudo dnf -y install remmina
 sudo dnf -y install nextcloud-client
 sudo dnf -y install solaar
-sudo dnf -y install speedtest-cli
+# sudo dnf -y install speedtest-cli
 
 sudo yum install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
@@ -144,17 +141,16 @@ sudo dnf -y install http://scootersoftware.com/bcompare-4.3.5.24893.x86_64.rpm
 echo "== DEVELOPMENT =="
 sudo dnf -y install kernel-devel kernel-headers
 sudo dnf -y install git
-sudo dnf -y install mongodb mongodb-server
-sudo systemctl start mongod
+# sudo dnf -y install mongodb mongodb-server
+# sudo systemctl start mongod
 sudo dnf -y install nodejs npm
 sudo dnf -y install https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-1.fc33.x86_64.rpm
 sudo dnf -y install mariadb-server
 systemctl enable mariadb
 systemctl start mariadb
 
-sudo rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
-sudo dnf -y install codium
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 sudo dnf check-update
 sudo dnf -y install code
@@ -170,6 +166,7 @@ systemctl enable nginx
 systemctl start nginx
 
 sudo dnf -y install php-fpm
+sudo dnf -y install php-xdebug
 sudo dnf -y install php-mysqlnd
 sudo dnf -y install php-opcache
 sudo dnf -y install php-pecl-apcu
