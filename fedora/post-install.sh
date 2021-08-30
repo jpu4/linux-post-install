@@ -87,10 +87,15 @@ sudo dnf -y install lynx
 sudo dnf -y install https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
 
 echo "== PRODUCTIVITY =="
-sudo dnf -y install focuswriter
+# sudo dnf -y install focuswriter 
 sudo dnf -y install thunderbird
 sudo dnf -y install libreoffice
 # sudo dnf -y install hamster-time-tracker
+
+# https://github.com/RPM-Outpost/typora
+git clone https://github.com/RPM-Outpost/typora.git
+cd typora
+./create-package.sh x64
 
 echo "== GRAPHICS =="
 # sudo dnf -y install openshot
@@ -115,7 +120,7 @@ sudo dnf -y install krename
 sudo dnf -y install remmina
 sudo dnf -y install nextcloud-client
 sudo dnf -y install solaar
-# sudo dnf -y install speedtest-cli
+sudo dnf -y install numlockx 
 
 sudo yum install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
@@ -214,11 +219,6 @@ sudo dnf install -y gh
 
 # Secure mariadb
 mysql_secure_installation
-
-# https://github.com/RPM-Outpost/typora
-git clone https://github.com/RPM-Outpost/typora.git
-cd typora
-./create-package.sh x64
 
 # Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
