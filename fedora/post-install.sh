@@ -249,6 +249,9 @@ EOF
 sudo dnf install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Addons/Packages/pangox-compat-0.0.2-2.sdl7.x86_64.rpm
 sudo dnf install -y anydesk
 
+[ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
+[ -e "$DIR_COLORS" ] || DIR_COLORS=""
+eval "`dircolors -b $DIR_COLORS`"
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
