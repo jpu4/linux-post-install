@@ -22,6 +22,7 @@ sudo add-apt-repository -y multiverse
 sudo apt -y config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt -y update
 
 echo "== MEDIA =="
