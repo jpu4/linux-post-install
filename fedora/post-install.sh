@@ -7,12 +7,12 @@
 # I've used individual sudo dnf entries because I've found in the past apps get skipped if there's an error.
 #-------------------------------------------------------------------------------------
 
-dlpath="~/Downloads"
-mysqluser=""
-mysqlpass=""
-gitfirstname=""
-gitlastname=""
-gitemail=""
+DIR_DL="~/Downloads"
+DB_USER=""
+DB_PASS=""
+GIT_FNAME=""
+GIT_LNAME=""
+GIT_EMAIL=""
 
 setenforce 0
 sudo sed -i 's|SELinux=enforcing|SELinux=permissive|g' /etc/sysconfig/selinux
@@ -20,7 +20,7 @@ grubby --update-kernel ALL --args selinux=0
 
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled false
-cd $dlpath
+cd $DIR_DL
 
 # UnComment to enable SSH Service
 # echo "Start SSHD service"
@@ -161,9 +161,9 @@ sudo dnf check-update
 sudo dnf -y install code
 
 # create admin user
-sudo mysql -u root -e "CREATE USER '$mysqluser'@'localhost' IDENTIFIED BY '$mysqlpass';"
-sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$mysqluser'@'localhost' WITH GRANT OPTION;"
-sudo mysql -u root -e "GRANT ALL ON *.* TO '$mysqluser'@'localhost' IDENTIFIED BY '$mysqlpass' WITH GRANT OPTION;"
+sudo mysql -u root -e "CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';"
+sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$DB_USER'@'localhost' WITH GRANT OPTION;"
+sudo mysql -u root -e "GRANT ALL ON *.* TO '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS' WITH GRANT OPTION;"
 
 # = Nginx =
 sudo dnf -y install nginx
@@ -212,8 +212,8 @@ sudo systemctl restart libvirtd
 
 echo "== SETTINGS =="
 # Add global git values
-git config --global user.name "$gitfirstname $gitlastname"
-git config --global user.email "$gitemail"
+git config --global user.name "$GIT_FNAME $GIT_LNAME"
+git config --global user.email "$GIT_EMAIL"
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install -y gh
 
