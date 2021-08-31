@@ -188,6 +188,7 @@ sudo dnf -y install php-gd
 sudo dnf -y install php-mbstring
 sudo dnf -y install php-mcrypt
 sudo dnf -y install php-xml
+sudo dnf -y install php-zip
 
 pip install --user
 pip install --upgrade pip
