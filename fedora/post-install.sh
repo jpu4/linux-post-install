@@ -121,6 +121,7 @@ sudo dnf -y install remmina
 sudo dnf -y install nextcloud-client
 sudo dnf -y install solaar
 sudo dnf -y install numlockx 
+sudo dnf -y install micro xclip
 
 sudo yum install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
@@ -216,6 +217,7 @@ git config --global user.name "$GIT_FNAME $GIT_LNAME"
 git config --global user.email "$GIT_EMAIL"
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install -y gh
+export EDITOR=/usr/bin/micro
 
 # Secure mariadb
 mysql_secure_installation
