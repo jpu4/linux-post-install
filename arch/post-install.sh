@@ -31,6 +31,7 @@ cd $DIR_START
 sudo pacman -Syy
 $CMD_INSTALL base-devel
 $CMD_INSTALL wget
+$CMD_INSTALL chaotic-keyring
 
 $CMD_INSTALL git
 git config --global user.name="$GIT_USER"
@@ -74,3 +75,5 @@ cd bcompare-4.4.1.26165
 ./install.sh
 cd $DIR_START
 
+# MYSQL-WORKBENCH
+$CMD_INSTALL mysql-workbench
