@@ -28,10 +28,10 @@ snap_install () {
 
 cd $DIR_START
 
+$CMD_INSTALL chaotic-keyring
 sudo pacman -Syy
 $CMD_INSTALL base-devel
 $CMD_INSTALL wget
-$CMD_INSTALL chaotic-keyring
 
 $CMD_INSTALL git
 git config --global user.name="$GIT_USER"
