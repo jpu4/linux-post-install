@@ -68,6 +68,21 @@ snap_install spotify
 # VSCODE
 aur_install visual-studio-code-bin
 
+# TYPORA
+aur_install typora-free
+
+# SKYPE
+aur_install skypeforlinux-stable-bin
+
+# NEXTCLOUD CLIENT
+aur_install nextcloud-client-git
+
+# DISCORD
+$CMD_INSTALL discord
+
+# THUNDERBIRD
+$CMD_INSTALL thunderbird
+
 # BEYOND COMPARE
 wget https://www.scootersoftware.com/bcompare-4.4.1.26165.x86_64.tar.gz
 tar zxvf bcompare-4.4.1.26165.i386.tar.gz
