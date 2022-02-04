@@ -236,6 +236,10 @@ flatpak install -y flathub com.spotify.Client
 wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
 flatpak install -y flathub com.discordapp.Discord
 
+# Obsidian
+wget https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref
+flatpak install -y flathub md.obsidian.Obsidian
+
 sudo dnf -y install zeal
 sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
 sudo dnf -y install https://www.expressvpn.works/clients/linux/expressvpn-3.17.0.8-1.x86_64.rpm
