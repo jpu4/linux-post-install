@@ -84,7 +84,7 @@ sudo dnf install -y signal-desktop
 echo "== BROWSERS =="
 sudo dnf -y install lynx
 # sudo dnf -y install google-chrome-stable
-sudo dnf -y install https://downloads.vivaldi.com/stable/vivaldi-stable-3.5.2115.81-1.x86_64.rpm
+sudo dnf -y install https://downloads.vivaldi.com/stable/vivaldi-stable-5.0.2497.51-1.x86_64.rpm
 
 echo "== PRODUCTIVITY =="
 # sudo dnf -y install focuswriter 
@@ -113,7 +113,7 @@ echo "== SECURITY =="
 echo "== UTILITIES =="
 sudo dnf -y install exfat-utils fuse-exfat fuse
 sudo dnf -y install krename
-sudo dnf -y install guake
+sudo dnf -y install yakuake
 sudo dnf -y install gnome-disk-utility
 sudo dnf -y install gnome-tweak-tool
 sudo dnf -y install krename
@@ -123,10 +123,10 @@ sudo dnf -y install solaar
 sudo dnf -y install numlockx 
 sudo dnf -y install micro xclip
 
-sudo yum install wget
+sudo dnf -y install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
 sudo mv bintray-ookla-rhel.repo /etc/yum.repos.d/
-sudo yum install speedtest
+sudo dnf -y install speedtest
 
 sudo dnf -y install rsync
 sudo dnf -y install s3cmd
@@ -258,4 +258,10 @@ eval "`dircolors -b $DIR_COLORS`"
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
+
+# NVIDIA GEFORCE RTX 3060
+# https://www.reddit.com/r/Fedora/comments/qntks4/how_can_i_install_nvidia_470_driver/
+sudo dnf remove -y '*nvidia*'
+sudo dnf install -y --refresh akmod-nvidia-470xx --enablerepo=rpmfusion-nonfree-updates-testing
+
 reboot
