@@ -36,6 +36,7 @@ sudo dnf -y upgrade
 echo "== REPOS =="
 sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://rpms.remirepo.net/fedora/remi-release-35.rpm
 # sudo touch /etc/yum.repos.d/mysql-community.repo
 # sudo echo "
 # [mysql80-community]
