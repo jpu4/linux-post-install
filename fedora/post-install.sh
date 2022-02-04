@@ -237,6 +237,7 @@ flatpak install -y flathub com.discordapp.Discord
 sudo dnf -y install zeal
 sudo dnf -y install https://vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
 sudo dnf -y install https://www.expressvpn.works/clients/linux/expressvpn-3.17.0.8-1.x86_64.rpm
+sudo dnf -y install https://scootersoftware.com/bcompare-4.4.1.26165.x86_64.rpm
 
 ## Teamviewer
 # sudo dnf -y install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
@@ -261,7 +262,7 @@ sudo dnf clean packages -y
 
 # NVIDIA GEFORCE RTX 3060
 # https://www.reddit.com/r/Fedora/comments/qntks4/how_can_i_install_nvidia_470_driver/
-sudo dnf remove -y '*nvidia*'
-sudo dnf install -y --refresh akmod-nvidia-470xx --enablerepo=rpmfusion-nonfree-updates-testing
+# sudo dnf remove -y '*nvidia*'
+# sudo dnf install -y --refresh akmod-nvidia-470xx --enablerepo=rpmfusion-nonfree-updates-testing
 
 reboot
