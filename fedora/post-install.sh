@@ -111,6 +111,8 @@ echo "== SECURITY =="
 # systemctl start tor
 
 echo "== UTILITIES =="
+sudo dnf -y install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo dnf -y install exfat-utils fuse-exfat fuse
 sudo dnf -y install krename
 sudo dnf -y install yakuake
@@ -252,10 +254,6 @@ sudo dnf -y install https://scootersoftware.com/bcompare-4.4.1.26165.x86_64.rpm
 # EOF
 # sudo dnf install -y http://springdale.princeton.edu/data/springdale/7/x86_64/os/Addons/Packages/pangox-compat-0.0.2-2.sdl7.x86_64.rpm
 # sudo dnf install -y anydesk
-
-[ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
-[ -e "$DIR_COLORS" ] || DIR_COLORS=""
-eval "`dircolors -b $DIR_COLORS`"
 
 sudo dnf upgrade -y
 sudo dnf clean packages -y
