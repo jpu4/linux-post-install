@@ -123,7 +123,7 @@ sudo dnf -y install nextcloud-client
 sudo dnf -y install solaar
 sudo dnf -y install numlockx 
 sudo dnf -y install micro xclip
-
+sudo dnf -y install samba
 sudo dnf -y install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
 sudo mv bintray-ookla-rhel.repo /etc/yum.repos.d/
