@@ -138,7 +138,6 @@ sudo dnf -y install wget
 wget https://bintray.com/ookla/rhel/rpm -O bintray-ookla-rhel.repo
 sudo mv bintray-ookla-rhel.repo /etc/yum.repos.d/
 sudo dnf -y install speedtest
-
 sudo dnf -y install rsync
 sudo dnf -y install s3cmd
 sudo dnf -y install unrar
@@ -200,6 +199,13 @@ sudo dnf -y install php-mbstring
 sudo dnf -y install php-mcrypt
 sudo dnf -y install php-xml
 sudo dnf -y install php-zip
+
+# Composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
 
 pip install --user
 pip install --upgrade pip
