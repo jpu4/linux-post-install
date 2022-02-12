@@ -68,6 +68,7 @@ sudo dnf -y install gstreamer1-plugins-ugly-free
 sudo dnf -y install kodi
 sudo dnf -y install youtube-dl
 sudo dnf -y install azureus
+sudo dnf -y install obs-studio
 
 echo "== CHAT =="
 sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
