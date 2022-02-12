@@ -37,6 +37,9 @@ echo "== REPOS =="
 sudo dnf -y install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y https://rpms.remirepo.net/fedora/remi-release-35.rpm
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
+sudo dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 # sudo touch /etc/yum.repos.d/mysql-community.repo
 # sudo echo "
 # [mysql80-community]
@@ -55,6 +58,13 @@ sudo dnf config-manager --setopt=deltarpm=true --save
 sudo dnf copr enable kwizart/fedy -y
 sudo dnf install fedy -y
 
+echo "== SETTINGS =="
+# Add global git values
+git config --global user.name "$GIT_FNAME $GIT_LNAME"
+git config --global user.email "$GIT_EMAIL"
+sudo dnf install -y gh
+export EDITOR=/usr/bin/micro
+
 echo "== MEDIA =="
 sudo dnf -y install vlc
 sudo dnf -y install clementine
@@ -71,7 +81,6 @@ sudo dnf -y install azureus
 sudo dnf -y install obs-studio
 
 echo "== CHAT =="
-sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
 sudo dnf -y install skypeforlinux
 # sudo dnf -y install pidgin
 sudo dnf -y install https://downloads.slack-edge.com/linux_releases/slack-4.12.0-0.1.fc21.x86_64.rpm
@@ -206,21 +215,12 @@ sudo usermod -a -G libvirt $USER
 sudo systemctl restart libvirtd
 
 # UnComment for VirtualBox
-# sudo dnf config-manager --add-repo http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 # sudo dnf config-manager --set-enabled virtualbox
 # sudo dnf -y install VirtualBox-6.0
 # sudo dnf -y install VirtualBox-guest-additions
 # Rebuild kernel modules
 # /usr/lib/virtualbox/vboxdrv.sh setup
 # usermod -a -G vboxusers $USER
-
-echo "== SETTINGS =="
-# Add global git values
-git config --global user.name "$GIT_FNAME $GIT_LNAME"
-git config --global user.email "$GIT_EMAIL"
-sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-sudo dnf install -y gh
-export EDITOR=/usr/bin/micro
 
 # Secure mariadb
 mysql_secure_installation
