@@ -14,12 +14,12 @@ GIT_FNAME=""
 GIT_LNAME=""
 GIT_EMAIL=""
 
-setenforce 0
+sudo setenforce 0
 sudo sed -i 's|SELinux=enforcing|SELinux=permissive|g' /etc/sysconfig/selinux
-grubby --update-kernel ALL --args selinux=0
+sudo grubby --update-kernel ALL --args selinux=0
 
-gsettings set org.gnome.desktop.session idle-delay 0
-gsettings set org.gnome.desktop.screensaver lock-enabled false
+sudo gsettings set org.gnome.desktop.session idle-delay 0
+sudo gsettings set org.gnome.desktop.screensaver lock-enabled false
 cd $DIR_DL
 
 # UnComment to enable SSH Service
@@ -51,8 +51,6 @@ sudo dnf install -y https://rpms.remirepo.net/fedora/remi-release-35.rpm
 
 sudo dnf config-manager --setopt=fastestmirror=True --save
 sudo dnf config-manager --setopt=deltarpm=true --save
-# sudo echo "fastestmirror=true" >> /etc/dnf.conf
-# sudo echo "deltarpm=true" >> /etc/dnf.conf
 
 sudo dnf copr enable kwizart/fedy -y
 sudo dnf install fedy -y
@@ -155,8 +153,8 @@ sudo dnf -y install git
 sudo dnf -y install nodejs npm
 sudo dnf -y install https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.23-1.fc33.x86_64.rpm
 sudo dnf -y install mariadb-server
-systemctl enable mariadb
-systemctl start mariadb
+sudo systemctl enable mariadb
+sudo systemctl start mariadb
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -165,14 +163,14 @@ sudo dnf check-update
 sudo dnf -y install code
 
 # create admin user
-sudo mysql -u root -e "CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';"
-sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$DB_USER'@'localhost' WITH GRANT OPTION;"
-sudo mysql -u root -e "GRANT ALL ON *.* TO '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS' WITH GRANT OPTION;"
+sudo mysql -u root -e "CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS';"
+sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$DB_USER'@'%' WITH GRANT OPTION;"
+sudo mysql -u root -e "GRANT ALL ON *.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS' WITH GRANT OPTION;"
 
 # = Nginx =
 sudo dnf -y install nginx
-systemctl enable nginx
-systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
 
 sudo dnf -y install php-fpm
 sudo dnf -y install php-xdebug
