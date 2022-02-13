@@ -239,8 +239,9 @@ wget https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref
 flatpak install -y flathub com.spotify.Client
 
 # Discord
-wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
-flatpak install -y flathub com.discordapp.Discord
+# wget https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+# flatpak install -y flathub com.discordapp.Discord
+sudo dnf install- -y discord
 
 # Obsidian
 wget https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref
