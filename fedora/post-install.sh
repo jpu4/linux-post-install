@@ -14,8 +14,12 @@ GIT_FNAME=""
 GIT_LNAME=""
 GIT_EMAIL=""
 
-sudo setenforce 0
-sudo sed -i 's|SELinux=enforcing|SELinux=permissive|g' /etc/sysconfig/selinux
+# sudo setenforce 0
+# sudo sed -i 's|SELinux=enforcing|SELinux=permissive|g' /etc/sysconfig/selinux
+# sudo sed -i 's|SELINUX=permissive|SELINUX=disabled|g' /etc/sysconfig/selinux
+# sudo sed -i 's|SELINUX=permissive|SELINUX=disabled|g' /etc/selinux/config
+# sudo sed -i 's|SELINUX=enforcing|SELINUX=disabled|g' /etc/sysconfig/selinux
+# sudo sed -i 's|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
 sudo grubby --update-kernel ALL --args selinux=0
 
 sudo gsettings set org.gnome.desktop.session idle-delay 0
@@ -164,6 +168,7 @@ sudo dnf -y install https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-work
 sudo dnf -y install mariadb-server
 sudo systemctl enable mariadb
 sudo systemctl start mariadb
+sudo firewall-cmd --add-port=3306/tcp --permanent
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -199,7 +204,8 @@ sudo dnf -y install php-mbstring
 sudo dnf -y install php-mcrypt
 sudo dnf -y install php-xml
 sudo dnf -y install php-zip
-
+sudo firewall-cmd --add-port=80/tcp --permanent
+sudo firewall-cmd --add-port=443/tcp --permanent
 # Composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
